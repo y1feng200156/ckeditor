@@ -1,4 +1,3 @@
-require 'mini_magick'
 
 module Ckeditor
   module Backend
@@ -45,9 +44,11 @@ module Ckeditor
         end
 
         def extract_dimensions
-          if model.image? && model.has_dimensions?
-            model.width = magick[:width]
-            model.height = magick[:height]
+          begin
+            if model.image? && model.has_dimensions? && require('mini_magick')
+              model.width = magick[:width]
+              model.height = magick[:height]
+            end
           end
         end
 
