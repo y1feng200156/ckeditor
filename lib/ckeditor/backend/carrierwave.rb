@@ -50,7 +50,7 @@ module Ckeditor
               model.height = magick[:height]
             end
           rescue LoadError
-            put 'Cancel dimensions.'
+            p 'Cancel dimensions.'
           end
         end
 
