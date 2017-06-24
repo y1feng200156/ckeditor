@@ -49,6 +49,8 @@ module Ckeditor
               model.width = magick[:width]
               model.height = magick[:height]
             end
+          rescue => exception
+            put 'Cancel dimensions.'
           end
         end
 
